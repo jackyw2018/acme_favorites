@@ -20,13 +20,20 @@
       "stage-2"
     ]
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "morgan": "^1.9.1",
+    "pg": "^7.8.2",
+    "react-router-dom": "^4.3.1",
+    "sequelize": "^4.43.0"
+  },
   "scripts": {
     "start": "node server.js",
     "postinstall": "npm run webpack",
     "webpack": "webpack",
     "webpack:dev": "npm run webpack -- --mode=development --watch",
-    "start:dev": "npm run webpack:dev & nodemon server.js --ignore src/ --ignore dist/"
+    "set-env": "DATABASE_URL=postgres://localhost:5432/acme_favorites",
+    "start:dev": "npm run set-env && npm run webpack:dev & nodemon ./src/server/index.js --ignore src/ --ignore dist/"
   },
   "keywords": [],
   "author": "",
